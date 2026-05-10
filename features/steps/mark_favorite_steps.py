@@ -2,24 +2,37 @@ from behave import given, when, then
 from playwright.sync_api import sync_playwright
 
 
+url = "https://tap-ht25-testverktyg.github.io/exam/"
+
 """ Mark book as favorite """
 @given('the user is viewing the homepage')
-def step_user_on_homepage(context):
-    # Simulate homepage state with a bookstore and one book
-    context.store = BookStore()
-    context.book = context.store.addBook("Author", "Title")
+def step_open_homepage(context):
+    context.playwright = sync_playwright().start()
+    context.browser = context.playwright.chromium.launch(headless=True)
+    context.page = context.browser.new_page()
 
-@when("the user clicks the heart icon next to a book")
-def step_click_heart(context):
-    # This simulates clicking ❤️ in the UI
-    context.store.toggleFavorite(context.book["id"])
+    context.page.goto(url)
 
-@then("the book should be marked as favorite")
-def step_book_marked_favorite(context):
-    assert context.book["favorite"] is True
+@when('the user clicks the heart icon next to a book titled "{title}"')
+def step_click_heart(context, title):
+    context.page.locator(f'[data-testid="star-{title}"]').click()
 
-@then("the selected book should display a favorite icon next to its title")
-def step_book_has_icon(context):
-    # In real UI this would check DOM, but here we simulate state
-    assert context.book["favorite"] is True
+@then('the book should be marked as favorite')
+def step_book_marked_as_favorite(context):
+    star = context.page.locator('[data-testid^="star-The Pragmatic Procrastinator"]').first
+
+    # checks real state change
+    assert "selected" in star.get_attribute("class")
+
+@then('the selected book should display a heart icon next to the title "{title}"')
+def step_favorite_icon_visible(context, title):
+    star = context.page.locator(f'[data-testid="star-{title}"]')
+
+    # ensures element exists
+    assert start.count() == 1
+
+    # ensures it is visually marked as favorite
+    assert "selected" in star.get_attribute("class")
+
+
 

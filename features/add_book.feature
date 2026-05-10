@@ -1,5 +1,4 @@
-Feature: Add Book Section
-
+Feature: Add Book
 
   Scenario: Add new book to the catalog
       Given the user is on the "Add New Book" tab

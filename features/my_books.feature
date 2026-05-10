@@ -1,4 +1,4 @@
-Feature: My Book Section
+Feature: My Book List
 
 
   Scenario: View my favorite books list

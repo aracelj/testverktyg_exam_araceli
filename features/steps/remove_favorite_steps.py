@@ -1,3 +1,9 @@
+from behave import given, when, then
+from playwright.sync_api import sync_playwright
+
+url = "https://tap-ht25-testverktyg.github.io/exam/"
+
+
 """ Remove a favorite book """
 @given('the book "{title}" is marked as favorite')
 def step_book_marked_favorite(context, title):
