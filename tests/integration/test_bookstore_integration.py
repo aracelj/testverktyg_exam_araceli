@@ -1,7 +1,7 @@
-from src.bookstore import BookStore
+from src.backend.bookstore import BookStore
 
 
-def test_add_book_and_toggle_favorite_flow():
+def test_addBook_and_toggleFavorite():
     store = BookStore()
 
     # Step 1: add a book (like user clicking "Add")

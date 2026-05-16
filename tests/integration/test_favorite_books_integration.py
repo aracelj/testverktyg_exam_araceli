@@ -1,5 +1,5 @@
-from src.bookstore import BookStore
-from src.favorite_books import FavoriteBooks
+from src.backend.bookstore import BookStore
+from src.backend.favorite_books import FavoriteBooks
 
 
 def test_add_and_remove_favorite_flow():

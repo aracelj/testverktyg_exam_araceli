@@ -15,7 +15,7 @@ def step_mark_favorite(context, title):
     context.browser = context.playwright.chromium.launch(headless=False)
     context.page = context.browser.new_page()
 
-    context.page.set_default_timeout(30000)
+    context.page.set_default_timeout(5000)
     context.page.goto(url)
 
     context.page.locator(f'[data-testid="star-{title}"]').click()
@@ -89,7 +89,7 @@ def step_stats_final(context, expected_count):
         f"Expected {expected_count}, got {actual_count}. Full text: {text}"
     )
 
-"""
+
 # ----------------------------
 # TOGGLE LOGIC CHECK (IMPORTANT)
 # ----------------------------
@@ -105,4 +105,4 @@ def step_toggle_state(context, title, times):
     assert is_favorite == expected, (
         f"After {times} clicks expected favorite={expected}, got {is_favorite}"
     )
- """
+

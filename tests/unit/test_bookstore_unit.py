@@ -1,4 +1,4 @@
-from src.bookstore import BookStore
+from src.backend.bookstore import BookStore
 
 
 def test_add_book():
