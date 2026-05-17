@@ -53,15 +53,15 @@ class BookStore:
         self.click_count[book_id] = self.click_count.get(book_id, 0) + 1
         clicks = self.click_count[book_id]
 
-        # odd clicks → ON
+        # odd clicks → Favorite (On)
         if clicks % 2 == 1:
             book["favorite"] = True
-            self.favorite_manager.add_favorite(book)
+            self.favorite_manager.add_book_favorite(book)
 
-        # even clicks → OFF
+        # even clicks → Unfavorite (Off)
         else:
             book["favorite"] = False
-            self.favorite_manager.remove_favorite(book)
+            self.favorite_manager.remove_book_favorite(book)
 
         return book
 
@@ -74,12 +74,12 @@ class FavoriteBooks:
             "total_favorites": 0
         }
 
-    def add_favorite(self, book):
+    def add_book_favorite(self, book):
         if book not in self.favorite_books:
             self.favorite_books.append(book)
             self.stats["total_favorites"] += 1
 
-    def remove_favorite(self, book):
+    def remove_book_favorite(self, book):
         if book in self.favorite_books:
             self.favorite_books.remove(book)
             self.stats["total_favorites"] -= 1
