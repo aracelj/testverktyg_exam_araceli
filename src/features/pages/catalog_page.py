@@ -20,6 +20,10 @@ class CatalogPage:
     def favorite_item(self, title):
         return self.page.locator(f'[data-testid="fav-{title}"]')
 
+    def is_favorite(self, title):
+        return "selected" in (self.star_button(title).get_attribute("class") or "")
+
+
     # -------------------------
     # Actions
     # -------------------------
@@ -49,3 +53,6 @@ class CatalogPage:
     def expect_count_increased(self, previous_count):
         current = self.get_favorite_count()
         assert current == previous_count + 1
+
+    def expect_unselected(self, title):
+        expect(self.star_button(title)).to_have_class(re.compile("star"))
