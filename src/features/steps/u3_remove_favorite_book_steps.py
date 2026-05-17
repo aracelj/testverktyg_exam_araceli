@@ -45,3 +45,4 @@ def step_stats(context):
     actual_value = context.stats.get_count()
 
     assert actual_value == expected_value
+

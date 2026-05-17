@@ -1,52 +1,9 @@
 Feature: [U3] Unmark a book as favorite from catalog # src/features/u3_remove_favorite_book.feature:1
 
   Scenario Outline: User unmarks a favorite book -- @1.1                                                 # src/features/u3_remove_favorite_book.feature:13
-    Given a book "Ormar på ett plan: En Python-berättelse" is already marked as favorite                 # src/features/steps/u3_remove_favorite_steps.py:7
-      Traceback (most recent call last):
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\behave\model.py", line 1991, in run
-          match.run(runner.context)
-          ~~~~~~~~~^^^^^^^^^^^^^^^^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\behave\matchers.py", line 105, in run
-          self.func(context, *args, **kwargs)
-          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
-        File "src\features\steps\u3_remove_favorite_steps.py", line 20, in step_precondition
-          context.previous_count = context.stats.get_count()
-                                   ~~~~~~~~~~~~~~~~~~~~~~~^^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\src\features\pages\stats_page.py", line 23, in get_count
-          text = self.page.locator('[data-testid="stars-count"]').inner_text()
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 17652, in inner_text
-          self._sync(self._impl_obj.inner_text(timeout=timeout))
-          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 115, in _sync
-          return task.result()
-                 ~~~~~~~~~~~^^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\_impl\_locator.py", line 476, in inner_text
-          return await self._frame.inner_text(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          ...<3 lines>...
-          )
-          ^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\_impl\_frame.py", line 712, in inner_text
-          return await self._channel.send(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^
-              "innerText", self._timeout, locals_to_params(locals())
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          )
-          ^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
-          return await self._connection.wrap_api_call(
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          ...<3 lines>...
-          )
-          ^
-        File "D:\handelsakademin\pythoncodes\testverktyg\testverktyg_exam_araceli\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
-          raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
-      playwright._impl._errors.TimeoutError: Locator.inner_text: Timeout 30000ms exceeded.
-      Call log:
-        - waiting for locator("[data-testid=\"stars-count\"]")
-
-    When the user toggles the heart icon for the favorite book "Ormar på ett plan: En Python-berättelse" # None
-    Then the book "Ormar på ett plan: En Python-berättelse" is unmarked as favorite                      # None
-    And the book "Ormar på ett plan: En Python-berättelse" is removed from My Books list                 # None
-    And the favorite count in statistics is decreased by 1                                               # None
+    Given a book "Ormar på ett plan: En Python-berättelse" is already marked as favorite                 # src/features/steps/u3_remove_favorite_book_steps.py:7
+    When the user toggles the heart icon for the favorite book "Ormar på ett plan: En Python-berättelse" # src/features/steps/u3_remove_favorite_book_steps.py:23
+    Then the book "Ormar på ett plan: En Python-berättelse" is unmarked as favorite                      # src/features/steps/u3_remove_favorite_book_steps.py:29
+    And the book "Ormar på ett plan: En Python-berättelse" is removed from My Books list                 # src/features/steps/u3_remove_favorite_book_steps.py:34
+    And the favorite count in statistics is decreased by 1                                               # src/features/steps/u3_remove_favorite_book_steps.py:39
 
