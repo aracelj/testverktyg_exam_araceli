@@ -5,33 +5,6 @@ from src.backend.booklist import BookStore, FavoriteBooks
 @pytest.fixture
 def store():
     return BookStore()
-""" 
-def test_full_backend_integration():
-    store = BookStore()
-
-    # STEP 1: Add new books to catalog
-    book1 = store.addBook("Python from scratch", "Jan Skansholm")
-    book2 = store.addBook("Python Crash Course", "Eric Matthes")
-
-    # STEP 2: Favorite books (simulate heart clicks)
-    store.toggleFavorite(book1["id"])
-    store.toggleFavorite(book2["id"])
-
-    # Check favorites updated
-    assert book1 in store.favorite_manager.favorite_books
-    assert book2 in store.favorite_manager.favorite_books
-    assert store.favorite_manager.stats["total_favorites"] == 2
-
-    # STEP 3: Remove one favorite
-    store.toggleFavorite(book1["id"])
-
-    # Check updated state
-    assert book1 not in store.favorite_manager.favorite_books
-    assert book2 in store.favorite_manager.favorite_books
-    assert store.favorite_manager.stats["total_favorites"] == 1
-
-    # STEP 4: Check catalog still has all books
-    assert len(store.books) == 15  # 13 default + 2 added  """
 
 # =========================
 # 1. ADD → FAVORITE → UNFAVORITE (FULL CYCLE)
