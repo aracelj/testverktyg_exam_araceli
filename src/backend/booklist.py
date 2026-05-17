@@ -15,7 +15,7 @@ class BookStore:
             {"id": 7, "title": "Learn Python in 21 Years", "author": "Sams Teachyourself", "favorite": False},
             {"id": 8, "title": "Agile Is a Feeling", "author": "Jeff Sutherland", "favorite": False},
             {"id": 9, "title": "Playwright: Waiting for Selectors", "author": "Samuel Barclay Beckett", "favorite": False},
-            {"id": 10, "title": "Stack Overflow: A Love Storyt", "author": "Copy Pasta", "favorite": False},
+            {"id": 10, "title": "Stack Overflow: A Love Story", "author": "Copy Pasta", "favorite": False},
             {"id": 11, "title": "My First Regex (And Last)", "author": "Larry Wallström", "favorite": False},
             {"id": 12, "title": "The Developer Who Knew Nothing", "author": "George R.R. Martin", "favorite": False},
             {"id": 13, "title": "The Bugs are Coming", "author": "George R.R. Martin", "favorite": False},

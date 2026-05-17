@@ -1,6 +1,6 @@
 from behave import given, when, then
 from playwright.sync_api import sync_playwright
-from playwright.sync_api import expect
+
 
 url = "https://tap-ht25-testverktyg.github.io/exam/"
 
@@ -8,9 +8,9 @@ url = "https://tap-ht25-testverktyg.github.io/exam/"
 def step_open_homepage(context):
     context.page.goto(url)
 
-@when('the user clicks the "My Books" tab')
-def step_mybook(context):
-    context.page.locator(f'[data-testid="favorites"]').click()
+@when('the user clicks the heart icon on "{book_title}"')
+def step_mybook(context, book_title):
+    context.page.locator(f'[data-testid="The Pragmatic Procrastinator"]').click()
 
 @then('the user should see their list of favorite books')
 def step_see_favorites_list(context):
