@@ -8,9 +8,5 @@
 
 [U4] As a user, I want to open the “Add Book” section so that I can add a new book with a title and author to the existing catalog list.
 
-[U5] As a user, I want to open the “My Books” section so that I can view all the books I have marked as favorites.
-
-[U6] As a user, I want to open the "Statistics" section so that I can see the number of books currently in my favorites list.
-
-[U7] As a user, I want to open the "Statistics" section so that I can see the total number of books available in the catalog.
+[U5] As a user, I want to open the "Statistics" section so that I can see the current total number of books and total number of favorite books.
 

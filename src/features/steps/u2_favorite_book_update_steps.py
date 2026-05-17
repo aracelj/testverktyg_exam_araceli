@@ -21,10 +21,10 @@ def step_marked(context, title):
 def step_open_my_books(context):
 
     context.mybooks = MyBooksPage(context.page)
-    context.mybooks.open()
+    context.mybooks.open_mybooks()
 
 
-@then('the book "{title}" is added in My Books')
+@then('the book "{title}" should be visible in the favorites list')
 def step_my_books(context, title):
 
     context.mybooks.expect_book_visible(title)

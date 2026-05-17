@@ -3,7 +3,7 @@ from pages.catalog_page import CatalogPage
 import re
 from playwright.sync_api import expect
 
-# [U1] As a user, I want to be able to click the toggle icon beside a book in the catalog so that I can mark it as favorite.
+
 @given('a book "{title}" is not marked as favorite')
 def step_not_favorite(context, title):
 

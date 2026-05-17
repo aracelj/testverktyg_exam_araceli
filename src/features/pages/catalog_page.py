@@ -56,3 +56,8 @@ class CatalogPage:
 
     def expect_unselected(self, title):
         expect(self.star_button(title)).to_have_class(re.compile("star"))
+
+    def expect_book_visible(self, title: str, author: str):
+        assert self.page.locator(f"text={title}").is_visible()
+        assert self.page.locator(f"text={author}").is_visible()
+

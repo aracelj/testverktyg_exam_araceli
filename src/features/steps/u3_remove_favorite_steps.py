@@ -4,7 +4,6 @@ from pages.mybooks_page import MyBooksPage
 from pages.stats_page import StatsPage
 
 
-# [U3] As a user, I want to unmark a book as a favorite so that it is removed from my favorites list and the statistics count is updated accordingly.
 @given('a book "{title}" is already marked as favorite')
 def step_precondition(context, title):
 
@@ -34,7 +33,7 @@ def step_unmarked(context, title):
 
 @then('the book "{title}" is removed from My Books list')
 def step_removed_mybooks(context, title):
-    context.mybooks.open()
+    context.mybooks.open_mybooks()
     context.mybooks.expect_not_visible(title)
 
 @then('the favorite count in statistics is decreased by 1')
