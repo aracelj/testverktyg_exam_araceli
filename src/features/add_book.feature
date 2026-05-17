@@ -1,8 +1,8 @@
-Feature: Add Book
+Feature: [U3] Add new book to catalog
 
-  Scenario: Add new book to the catalog
-      Given the user is on the "Add New Book" tab
-      When the user enters the title "The Hobbit"
-      And the user enters the author "J.R.R. Tolkien"
-      And the user clicks the "Add Book" button
-      Then the book should be added to the catalog list
+Scenario: User adds a new book to the catalog
+    Given the user is on the Add Book section
+    When the user enters a title and author
+    And the user submits the form
+    Then the new book should appear in the catalog list
+    And the catalog total count should equal the previous count plus 1
